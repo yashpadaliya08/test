@@ -69,3 +69,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 --admin side-(test data/dummy)dashboard ,Report,Users
             (with mysql live)Cars, bokking, message
             static-settings
+
+
+--commit  2 layout and theme changed admin and user both
