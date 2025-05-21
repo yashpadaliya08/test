@@ -3,29 +3,35 @@
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow rounded">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
                 <div class="row g-0">
                     @if ($car->image)
-                    <div class="col-md-5">
-                        <img src="{{ asset('storage/' . $car->image) }}" class="img-fluid rounded-start" alt="{{ $car->name }}">
-                    </div>
+                        <div class="col-md-5 bg-light">
+                            <img src="{{ asset('storage/' . $car->image) }}" class="img-fluid h-100 w-100 object-fit-cover" alt="{{ $car->name }}" style="min-height: 100%;">
+                        </div>
                     @endif
 
                     <div class="col-md-7">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ $car->name }}</h3>
-                            <p class="card-text"><strong>Brand:</strong> {{ $car->brand }}</p>
-                            <p class="card-text"><strong>Model:</strong> {{ $car->model }}</p>
-                            <p class="card-text"><strong>Year:</strong> {{ $car->year }}</p>
-                            <p class="card-text"><strong>Color:</strong> {{ $car->color }}</p>
-                            <p class="card-text"><strong>Type:</strong> {{ $car->type ?? 'N/A' }}</p>
-                            <p class="card-text"><strong>Price/Day:</strong> ₹{{ $car->price_per_day }}</p>
-                            <p class="card-text"><strong>Description:</strong> {{ $car->description ?? 'No description available.' }}</p>
+                        <div class="card-body p-4 d-flex flex-column h-100">
+                            <h2 class="card-title mb-3 text-theme">{{ $car->name }}</h2>
 
-                            <div class="mt-4">
-                               <a href="{{ route('book', ['car_id' => $car->id]) }}" class="btn btn-primary">Book Now</a>
+                            <ul class="list-unstyled mb-4">
+                                <li><strong>Brand:</strong> {{ $car->brand }}</li>
+                                <li><strong>Model:</strong> {{ $car->model }}</li>
+                                <li><strong>Year:</strong> {{ $car->year }}</li>
+                                <li><strong>Color:</strong> {{ $car->color }}</li>
+                                <li><strong>Type:</strong> {{ $car->type ?? 'N/A' }}</li>
+                                <li><strong>Price/Day:</strong> ₹{{ number_format($car->price_per_day) }}</li>
+                            </ul>
 
+                            <div class="mb-4">
+                                <h5 class="fw-semibold">Description</h5>
+                                <p class="text-muted">{{ $car->description ?? 'No description available.' }}</p>
+                            </div>
+
+                            <div class="mt-auto">
+                                <a href="{{ route('book', ['car_id' => $car->id]) }}" class="btn btn-theme w-100">Book This Car</a>
                             </div>
                         </div>
                     </div>
@@ -34,4 +40,26 @@
         </div>
     </div>  
 </div>
+
+<!-- 🌟 Custom Styles -->
+<style>
+    .text-theme {
+        color: #e74c3c;
+    }
+
+    .btn-theme {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-theme:hover {
+        background-color: #c0392b;
+        color: #fff;
+    }
+
+    .object-fit-cover {
+        object-fit: cover;
+    }
+</style>
 @endsection

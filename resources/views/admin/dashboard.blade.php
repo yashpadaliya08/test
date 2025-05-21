@@ -1,58 +1,84 @@
 @extends('admin.layout')
 
+@section('title', 'Admin Dashboard')
+
 @section('content')
 <div class="container-fluid py-4">
-    <h2 class="mb-4">Admin Dashboard</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Dashboard Overview</h2>
+        <span class="badge bg-theme text-white">{{ now()->format('F d, Y') }}</span>
+    </div>
 
-    <div class="row">
+    <div class="row g-4">
         <!-- Total Cars -->
         <div class="col-md-3">
-            <div class="card text-white bg-primary shadow-sm mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Total Cars</h5>
-                    <p class="card-text fs-4">54</p>
+            <div class="card shadow-sm border-0 bg-primary text-white h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-car-front-fill fs-2 me-3"></i>
+                        <div>
+                            <h6 class="mb-1 text-uppercase">Total Cars</h6>
+                            <h4 class="mb-0 fw-bold">54</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Total Bookings -->
         <div class="col-md-3">
-            <div class="card text-white bg-success shadow-sm mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Total Bookings</h5>
-                    <p class="card-text fs-4">120</p>
+            <div class="card shadow-sm border-0 bg-success text-white h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-calendar-check-fill fs-2 me-3"></i>
+                        <div>
+                            <h6 class="mb-1 text-uppercase">Total Bookings</h6>
+                            <h4 class="mb-0 fw-bold">120</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Total Users -->
         <div class="col-md-3">
-            <div class="card text-white bg-warning shadow-sm mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Total Users</h5>
-                    <p class="card-text fs-4">76</p>
+            <div class="card shadow-sm border-0 bg-warning text-white h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-people-fill fs-2 me-3"></i>
+                        <div>
+                            <h6 class="mb-1 text-uppercase">Total Users</h6>
+                            <h4 class="mb-0 fw-bold">76</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Total Revenue -->
         <div class="col-md-3">
-            <div class="card text-white bg-danger shadow-sm mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Revenue</h5>
-                    <p class="card-text fs-4">$5,420</p>
+            <div class="card shadow-sm border-0 bg-danger text-white h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-currency-dollar fs-2 me-3"></i>
+                        <div>
+                            <h6 class="mb-1 text-uppercase">Revenue</h6>
+                            <h4 class="mb-0 fw-bold">$5,420</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Recent Bookings Section (Optional) -->
-    <div class="card mt-4">
-        <div class="card-header">
-            <h5>Recent Bookings</h5>
+    <!-- Recent Bookings Section -->
+    <div class="card mt-5 shadow-sm border-0">
+        <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Recent Bookings</h5>
+            <a href="#" class="btn btn-sm btn-theme">View All</a>
         </div>
         <div class="card-body">
-            <p>No recent bookings to show yet.</p>
+            <p class="text-muted mb-0">No recent bookings to show yet.</p>
         </div>
     </div>
 </div>
