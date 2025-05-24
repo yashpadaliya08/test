@@ -13,6 +13,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     protected $hidden = [
@@ -29,4 +30,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Booking::class);
     }
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
 }
